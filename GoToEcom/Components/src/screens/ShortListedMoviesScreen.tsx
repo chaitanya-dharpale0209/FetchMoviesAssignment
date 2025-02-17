@@ -1,4 +1,3 @@
-// src/screens/ShortlistedMoviesScreen.tsx
 import React from 'react';
 import { View, FlatList, Text, Button, Image, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';

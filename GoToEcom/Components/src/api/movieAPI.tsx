@@ -1,4 +1,3 @@
-// api/movieAPI.ts
 import axios from 'axios';
 
 const API_KEY = 'f55cb2c2';
@@ -9,9 +8,9 @@ export const fetchMovies = async (searchTerm: string, page: number = 1) => {
     params: {
       s: searchTerm,
       apikey: API_KEY,
-      page, // Pass page number
+      page
     },
   });
 
-  return response.data;  // Returning full response for pagination
+  return response.data;  
 };
