@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { View, FlatList, Text, Button, Image, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeMovie } from '../redux/shortListedMoviesSlice';
-
 
 const ShortlistedMoviesScreen = () => {
   const shortlistedMovies = useSelector((state: any) => state.shortlistedMovies.movies);
@@ -52,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShortlistedMoviesScreen;
+export default memo(ShortlistedMoviesScreen);  // Prevent unnecessary re-renders

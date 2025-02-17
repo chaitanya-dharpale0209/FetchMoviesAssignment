@@ -1,15 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
+import AsyncStorage from '@react-native-async-storage/async-storage'; // ✅ For React Native
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';  // You can also use AsyncStorage
+import { configureStore } from '@reduxjs/toolkit';
 import shortlistedMoviesReducer from './shortListedMoviesSlice';
 
 const persistConfig = {
   key: 'root',  
-  storage,      
+  storage: AsyncStorage, 
 };
 
 const persistedReducer = persistReducer(persistConfig, shortlistedMoviesReducer);
-
 
 export const store = configureStore({
   reducer: {

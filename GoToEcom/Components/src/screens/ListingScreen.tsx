@@ -9,12 +9,12 @@ import debounce from 'lodash.debounce';
 const ListingScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedTerm, setDebouncedTerm] = useState('');
-  const [page, setPage] = useState(1);  // State to track page number
+  const [page, setPage] = useState(1);  
   const dispatch = useDispatch();
 
   const debouncedSearch = debounce((term: string) => {
     setDebouncedTerm(term);
-    setPage(1); // Reset page to 1 when new search term is entered
+    setPage(1); 
   }, 500);
 
   const handleSearchChange = (term: string) => {
@@ -26,8 +26,8 @@ const ListingScreen = () => {
     ['movies', debouncedTerm, page],
     () => fetchMovies(debouncedTerm, page),
     { 
-      enabled: !!debouncedTerm,  // Only fetch if the search term is valid
-      keepPreviousData: true,  // Maintain previous data while loading new page
+      enabled: !!debouncedTerm,  
+      keepPreviousData: true,  
     }
   );
 
